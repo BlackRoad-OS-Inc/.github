@@ -1,0 +1,48 @@
+name: Bug Report
+description: Report a bug in any BlackRoad OS repo
+title: "[bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill out this form as completely as possible.
+  - type: input
+    id: repo
+    attributes:
+      label: Affected Repository
+      placeholder: blackroad-core, blackroad-cli, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Run `br deploy`
+        2. See error...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: |
+        - OS: macOS 15.2
+        - Node.js: 20.x
+        - CLI version: 1.0.0
+    validations:
+      required: false
