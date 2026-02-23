@@ -1,0 +1,21 @@
+# BlackRoad OS, Inc. — CODEOWNERS
+# Default reviewer for all files unless overridden below
+
+* @blackboxprogramming
+
+# Design system
+*.css @blackboxprogramming
+*.figma @blackboxprogramming
+/blackroad-design/ @blackboxprogramming
+/blackroad-brand-kit/ @blackboxprogramming
+
+# Infrastructure
+*.tf @blackboxprogramming
+*.yml @blackboxprogramming
+*.toml @blackboxprogramming
+/blackroad-infra/ @blackboxprogramming
+
+# Security-sensitive
+*.key @blackboxprogramming
+*secrets* @blackboxprogramming
+*vault* @blackboxprogramming
