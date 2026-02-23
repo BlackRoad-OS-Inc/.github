@@ -1,48 +1,56 @@
-name: Bug Report
-description: Report a bug in any BlackRoad OS repo
-title: "[bug] "
-labels: ["bug", "triage"]
+name: "🐛 Bug Report"
+description: Something isn't working as expected
+labels: ["type:bug", "status:needs-review"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to report a bug. Please fill out this form as completely as possible.
+        Thanks for filing a bug. Fill this out as completely as possible.
+
   - type: input
-    id: repo
+    id: summary
     attributes:
-      label: Affected Repository
-      placeholder: blackroad-core, blackroad-cli, etc.
+      label: Summary
+      description: One sentence describing the bug
+      placeholder: "br agents status returns 500 when registry is offline"
     validations:
       required: true
-  - type: textarea
-    id: description
-    attributes:
-      label: Bug Description
-      description: A clear and concise description of what the bug is.
-    validations:
-      required: true
+
   - type: textarea
     id: steps
     attributes:
       label: Steps to Reproduce
+      description: Exact steps to trigger the bug
       placeholder: |
-        1. Run `br deploy`
-        2. See error...
+        1. Run `br agents status`
+        2. See error
     validations:
       required: true
+
   - type: textarea
     id: expected
     attributes:
       label: Expected Behavior
+      placeholder: Should return a graceful error message, not a 500
     validations:
       required: true
+
   - type: textarea
-    id: environment
+    id: actual
     attributes:
-      label: Environment
-      placeholder: |
-        - OS: macOS 15.2
-        - Node.js: 20.x
-        - CLI version: 1.0.0
+      label: Actual Behavior
+      placeholder: Unhandled exception thrown
     validations:
-      required: false
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "v0.1.0 / commit abc1234"
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Logs, screenshots, environment details
