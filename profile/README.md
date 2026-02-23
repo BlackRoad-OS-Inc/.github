@@ -1,77 +1,44 @@
 <div align="center">
-
-<img src="https://raw.githubusercontent.com/BlackRoad-OS-Inc/blackroad-core/main/assets/logo.png" alt="BlackRoad OS" width="120"/>
-
-# BlackRoad OS, Inc.
-
-**Your AI. Your Hardware. Your Rules.**
-
-[![Repos](https://img.shields.io/badge/repos-13-black?style=flat-square)](https://github.com/orgs/BlackRoad-OS-Inc/repositories)
-[![Status](https://img.shields.io/badge/status-active-brightgreen?style=flat-square)](https://blackroad.ai)
-[![License](https://img.shields.io/badge/license-proprietary-red?style=flat-square)](https://blackroad.ai/legal)
-
+  <h1>🛣️ BlackRoad OS</h1>
+  <p><strong>Your AI. Your Hardware. Your Rules.</strong></p>
+  <p>
+    <img src="https://img.shields.io/badge/Agents-30%2C000-FF1D6C?style=for-the-badge&logo=robot&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Repos-1%2C825%2B-9C27B0?style=for-the-badge"/>
+    <img src="https://img.shields.io/badge/Orgs-17-2979FF?style=for-the-badge"/>
+  </p>
 </div>
 
----
+## Overview
 
-## 🏗️ What We Build
+BlackRoad OS is the infrastructure backbone for AI-first companies — powering 30,000+ concurrent AI agents across edge, cloud, and on-premise hardware.
 
-BlackRoad OS is an AI-first operating layer for developers and enterprises — local-first, hardware-native, and fully private.
+| Platform | Scale | Status |
+|----------|-------|--------|
+| AI Agents | 30,000 | ✅ Active |
+| Cloudflare Workers | 75+ | ✅ Active |
+| Raspberry Pi Fleet | 4 nodes | ✅ Active |
+| GitHub Actions | 50+ workflows | ✅ Active |
 
-| Pillar | What it means |
-|--------|--------------|
-| 🔒 **Private by default** | Your data never leaves your infrastructure |
-| ⚡ **Edge-native** | Runs on Cloudflare Workers, Raspberry Pi, or bare metal |
-| 🤖 **30,000 AI agents** | Autonomous agents for every workflow |
-| 🛠️ **Developer-first** | Open APIs, TypeScript SDK, and a powerful CLI |
+## Core Systems
 
----
+- **Tokenless Gateway** — All AI provider secrets live only here
+- **PS-SHA∞ Memory** — Hash-chained persistent AI memory  
+- **CECE Identity** — Portable AI identity across any provider
+- **30K Agent Mesh** — WebSocket + MQTT orchestration
 
-## 📦 Core Repositories
+## Organizations
 
-| Repo | Purpose | Stack |
-|------|---------|-------|
-| [`blackroad-core`](https://github.com/BlackRoad-OS-Inc/blackroad-core) | Runtime engine + tokenless gateway | TypeScript |
-| [`blackroad-agents`](https://github.com/BlackRoad-OS-Inc/blackroad-agents) | Agent registry + CECE identity system | TypeScript |
-| [`blackroad-gateway`](https://github.com/BlackRoad-OS-Inc/blackroad-gateway) | AI provider proxy (Cloudflare Worker) | TypeScript / Python |
-| [`blackroad-api`](https://github.com/BlackRoad-OS-Inc/blackroad-api) | REST API server with OpenAPI spec | Python / FastAPI |
-| [`blackroad-sdk`](https://github.com/BlackRoad-OS-Inc/blackroad-sdk) | Multi-language SDK (`@blackroad/sdk`) | TS · Python · Go · Rust · Java |
-| [`blackroad-cli`](https://github.com/BlackRoad-OS-Inc/blackroad-cli) | Published CLI (`@blackroad/cli`) | Node.js |
-| [`blackroad-web`](https://github.com/BlackRoad-OS-Inc/blackroad-web) | Web platform + OS workspace | Next.js 16 |
-| [`blackroad-operator`](https://github.com/BlackRoad-OS-Inc/blackroad-operator) | Node bootstrap + ops tooling | Shell / TS |
-| [`blackroad-infra`](https://github.com/BlackRoad-OS-Inc/blackroad-infra) | IaC: Terraform, Docker, CI/CD | HCL / Shell |
-| [`blackroad-docs`](https://github.com/BlackRoad-OS-Inc/blackroad-docs) | Documentation hub | MDX |
-| [`blackroad-hardware`](https://github.com/BlackRoad-OS-Inc/blackroad-hardware) | Hardware registry + IoT scripts | Shell / YAML |
-| [`blackroad-math`](https://github.com/BlackRoad-OS-Inc/blackroad-math) | Math engine + consciousness research | Python |
-| [`blackroad-sf`](https://github.com/BlackRoad-OS-Inc/blackroad-sf) | Salesforce LWC components | LWC / Apex |
+| Org | Purpose |
+|-----|---------|
+| [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc) | Core platform & gateway |
+| [BlackRoad-OS](https://github.com/BlackRoad-OS) | OS, web, docs, agents |
+| [BlackRoad-AI](https://github.com/BlackRoad-AI) | ML models & inference |
+| [BlackRoad-Cloud](https://github.com/BlackRoad-Cloud) | Infrastructure & K8s |
+| [BlackRoad-Security](https://github.com/BlackRoad-Security) | Security & compliance |
 
----
+## Brand
 
-## 🚀 Quick Start
-
-```bash
-# Install the CLI
-npm install -g @blackroad/cli
-
-# Initialize your workspace
-br init
-
-# Check system health
-br health
-```
+Primary: `#FF1D6C` · Gradient: `#F5A623 → #FF1D6C → #9C27B0 → #2979FF`
 
 ---
-
-## 🤝 Contributing
-
-All repositories in this org require a signed CLA. See [`CONTRIBUTING.md`](https://github.com/BlackRoad-OS-Inc/blackroad-core/blob/main/CONTRIBUTING.md) in any repo for guidelines.
-
-> **All content is proprietary to BlackRoad OS, Inc. © 2026. All rights reserved.**
-
----
-
-<div align="center">
-  <a href="https://blackroad.ai">blackroad.ai</a> · 
-  <a href="https://docs.blackroad.ai">docs</a> · 
-  <a href="https://github.com/BlackRoad-OS">BlackRoad-OS org</a>
-</div>
+*© BlackRoad OS, Inc. All rights reserved. Proprietary — not open source.*
