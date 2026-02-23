@@ -1,24 +1,29 @@
-## Summary
+## 🔄 Pull Request
 
-<!-- What does this PR do? One sentence. -->
+### Summary
+<!-- What does this PR do? -->
 
-## Changes
+### Type of Change
+- [ ] 🐛 Bug fix
+- [ ] ✨ New feature
+- [ ] 🔧 Refactor
+- [ ] 📚 Documentation
+- [ ] 🚀 Deploy / Infrastructure
+- [ ] 🤖 Agent / AI changes
 
-- 
-- 
+### Testing
+- [ ] Tested locally
+- [ ] Tested on alice Pi (192.168.4.49)
+- [ ] Ran `br test` or equivalent
 
-## Testing
+### Checklist
+- [ ] No secrets committed
+- [ ] AGENTS.md updated if adding new agent capabilities
+- [ ] Memory journal updated if relevant
+- [ ] CF Worker redeployed if subdomain changed
 
-- [ ] Tests pass locally
-- [ ] New tests added (if applicable)
-- [ ] Manual testing done
+### Related Issues
+Closes #
 
-## Checklist
-
-- [ ] `CHANGELOG.md` updated
-- [ ] No secrets or credentials committed
-- [ ] CI passes
-
-## Related Issues
-
-<!-- Closes #N -->
+---
+*BlackRoad OS, Inc. — All contributions are work-for-hire.*

@@ -1,73 +1,30 @@
-name: "✨ Feature Request"
-description: Propose a new feature or enhancement
-labels: ["type:feature", "priority:p2"]
+name: Feature Request
+description: Suggest a new feature
+labels: ["enhancement"]
+assignees: ["blackboxprogramming"]
 body:
   - type: markdown
     attributes:
-      value: |
-        Describe the feature you want to see built.
-
+      value: "## ✨ Feature Request"
   - type: input
-    id: summary
+    id: feature
     attributes:
-      label: Feature Summary
-      placeholder: "Add `br deploy --target cloudflare` command"
+      label: Feature Name
     validations:
       required: true
-
   - type: textarea
-    id: problem
+    id: motivation
     attributes:
-      label: Problem / Motivation
-      description: What problem does this solve? Why do we need it?
-      placeholder: "Currently there's no single command to deploy to Cloudflare — takes 4 manual steps"
+      label: Motivation
+      placeholder: "Why is this needed?"
     validations:
       required: true
-
   - type: textarea
-    id: solution
+    id: proposal
     attributes:
       label: Proposed Solution
-      description: How should this work?
-      placeholder: |
-        `br deploy --target cloudflare` should:
-        1. Run `wrangler deploy`
-        2. Smoke-test the deployed URL
-        3. Print the worker URL
-    validations:
-      required: true
-
   - type: dropdown
-    id: area
+    id: category
     attributes:
-      label: Area
-      options:
-        - Core / Gateway
-        - Agents
-        - Web / Dashboard
-        - CLI / Operator
-        - Infrastructure
-        - SDK / API
-        - Design System
-        - Documentation
-        - Hardware / Fleet
-    validations:
-      required: true
-
-  - type: dropdown
-    id: priority
-    attributes:
-      label: Priority
-      options:
-        - "P0 — Critical"
-        - "P1 — High"
-        - "P2 — Normal"
-        - "P3 — Low / Nice-to-have"
-    validations:
-      required: true
-
-  - type: textarea
-    id: alternatives
-    attributes:
-      label: Alternatives Considered
-      description: What else did you think of?
+      label: Category
+      options: ["CLI Tool", "Agent", "Infrastructure", "UI/Frontend", "Salesforce", "Hardware", "Documentation"]

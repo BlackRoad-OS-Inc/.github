@@ -1,0 +1,33 @@
+name: BlackRoad OS CI
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for secrets
+        run: |
+          if grep -r "sk_live\|ghp_\|AKIA\|-----BEGIN.*PRIVATE" --include="*.js" --include="*.ts" --include="*.py" --include="*.sh" . 2>/dev/null; then
+            echo "⚠️ Potential secret detected!"
+            exit 1
+          fi
+          echo "✅ No hardcoded secrets found"
+
+      - name: Validate AGENTS.md exists
+        run: |
+          if [ -f "AGENTS.md" ]; then
+            echo "✅ AGENTS.md present"
+          else
+            echo "⚠️ AGENTS.md missing — consider adding it"
+          fi
+
+      - name: Log to memory
+        run: |
+          echo "{\"ts\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",\"action\":\"ci-run\",\"entity\":\"${{ github.repository }}\",\"detail\":\"CI passed on ${{ github.ref_name }}\"}" || true
