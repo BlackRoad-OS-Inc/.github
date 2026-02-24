@@ -2,44 +2,37 @@
 
 # 🚀 BlackRoad OS, Inc.
 
-**Sovereign AI Infrastructure — Your AI. Your Hardware. Your Rules.**
+### Your AI. Your Hardware. Your Rules.
 
-[![Agents](https://img.shields.io/badge/agents-30%2C000-FF1D6C?style=flat-square)](https://agents.blackroad.io)
-[![Repos](https://img.shields.io/badge/repos-1825+-2979FF?style=flat-square)](https://github.com/BlackRoad-OS)
-[![Status](https://img.shields.io/badge/status-operational-4CAF50?style=flat-square)](https://status.blackroad.io)
+The corporate home of BlackRoad OS — a self-hosted AI platform powering 30,000 agents across Pi fleets, cloud, and edge.
+
+[![Platform](https://img.shields.io/badge/Platform-blackroad.io-FF1D6C?style=for-the-badge)](https://blackroad.io)
+[![Agents](https://img.shields.io/badge/AI_Agents-30%2C000-9C27B0?style=for-the-badge)](https://agents.blackroad.io)
+[![Cost](https://img.shields.io/badge/AI_Cost-%240-F5A623?style=for-the-badge)](https://blackroad.io)
 
 </div>
 
-## What We Build
+---
 
-BlackRoad OS is the operating system for the AI age — a complete sovereign infrastructure stack running on your hardware.
+## 🎯 Focus Areas
 
-| Layer | Product | Status |
-|-------|---------|--------|
-| 🌐 **Edge** | Cloudflare Workers + Pi Tunnel | ✅ Live |
-| 🤖 **Agents** | 30,000 autonomous AI agents | ✅ Live |
-| 💾 **Memory** | PS-SHA∞ hash-chain journals | ✅ Live |
-| 🔐 **Vault** | AES-256 secrets management | ✅ Live |
-| 🧬 **CECE** | Portable AI identity protocol | ✅ Live |
-| ⚡ **Gateway** | Tokenless AI provider routing | ✅ Live |
+`AI Platform` • `Self-Hosted` • `Developer Tools` • `Infrastructure`
 
-## Core Repos
+## 🔗 Links
 
-| Repo | Purpose |
-|------|---------|
-| [blackroad](https://github.com/BlackRoad-OS-Inc/blackroad) | Main monorepo — br CLI, tools, agents |
-| [blackroad-core](https://github.com/BlackRoad-OS-Inc/blackroad-core) | Tokenless gateway architecture |
-| [blackroad-sf](https://github.com/BlackRoad-OS-Inc/blackroad-sf) | Salesforce LWC + AI integration |
-| [blackroad-math](https://github.com/BlackRoad-OS-Inc/blackroad-math) | Trinary logic + quantum math |
-
-## Organizations
-
-| Org | Focus | Repos |
-|-----|-------|-------|
-| [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc) | Corporate core | 20 |
-| [BlackRoad-OS](https://github.com/BlackRoad-OS) | Platform + OS | 1,229 |
-| [blackboxprogramming](https://github.com/blackboxprogramming) | Personal + SDKs | 30+ |
-| [Blackbox-Enterprises](https://github.com/Blackbox-Enterprises) | Enterprise automation | Growing |
+| | |
+|---|---|
+| 🌐 **Website** | [blackroad-os-inc.github.io](https://blackroad-os-inc.github.io) |
+| 📖 **Docs** | [docs.blackroad.io](https://docs.blackroad.io) |
+| 💬 **Status** | [status.blackroad.io](https://status.blackroad.io) |
+| 🤖 **Agents** | [agents.blackroad.io](https://agents.blackroad.io) |
 
 ---
-*© BlackRoad OS, Inc. All rights reserved. Public repos ≠ open source.*
+
+<div align="center">
+
+**Part of [BlackRoad OS](https://blackroad.io)** — 30,000 AI Agents • 17 Organizations • 1,800+ Repos • $0 AI Cost
+
+*© BlackRoad OS, Inc. All rights reserved.*
+
+</div>
