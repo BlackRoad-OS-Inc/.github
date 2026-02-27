@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "BlackRoad OS @blackroad-agents deca-layered task scaffold",
   "updated": "2026-02-27T00:00:00Z",
   "trigger": "@blackroad-agents",
