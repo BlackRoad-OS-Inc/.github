@@ -5,10 +5,18 @@ on:
   pull_request:
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
   agent-identity:
     name: Load Agent Identity
     runs-on: [self-hosted, pi]
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - name: Identify branch agent

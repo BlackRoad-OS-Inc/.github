@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussions
+    url: https://github.com/orgs/BlackRoad-OS-Inc/discussions
+    about: Ask questions, share ideas, or start a conversation with the team.
+  - name: 📧 Security Vulnerability
+    url: mailto:security@blackroad.ai
+    about: Report a security vulnerability privately (do not open a public issue).
+  - name: 🌐 Status Page
+    url: https://status.blackroad.io
+    about: Check the current status of BlackRoad OS services.

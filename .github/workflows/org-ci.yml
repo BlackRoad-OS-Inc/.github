@@ -5,20 +5,60 @@ on:
   pull_request:
     branches: [main, master]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
   validate:
     name: Validate
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
       - name: Check for secrets
         run: |
-          if grep -r "sk_live\|ghp_\|AKIA\|-----BEGIN.*PRIVATE" --include="*.js" --include="*.ts" --include="*.py" --include="*.sh" . 2>/dev/null; then
+          if grep -rE "sk_live[_a-zA-Z0-9]+|ghp_[a-zA-Z0-9]+|AKIA[A-Z0-9]{16}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY" \
+            --include="*.js" --include="*.ts" --include="*.py" --include="*.sh" \
+            --include="*.json" --include="*.yml" --include="*.yaml" \
+            --exclude-dir=".git" . 2>/dev/null; then
             echo "⚠️ Potential secret detected!"
             exit 1
           fi
           echo "✅ No hardcoded secrets found"
+
+      - name: Validate JSON files
+        run: |
+          FAILED=0
+          while IFS= read -r -d '' f; do
+            ERR=$(python3 -m json.tool "$f" 2>&1 > /dev/null)
+            if [ $? -ne 0 ]; then
+              echo "❌ Invalid JSON: $f — $ERR"
+              FAILED=1
+            else
+              echo "✅ Valid JSON: $f"
+            fi
+          done < <(find . -name "*.json" -not -path "./.git/*" -print0)
+          [ "$FAILED" -eq 0 ] || exit 1
+
+      - name: Validate YAML files
+        run: |
+          pip install --quiet pyyaml
+          FAILED=0
+          while IFS= read -r -d '' f; do
+            ERR=$(python3 -c "import yaml,sys; list(yaml.safe_load_all(open(sys.argv[1],encoding='utf-8')))" "$f" 2>&1)
+            if [ $? -ne 0 ]; then
+              echo "❌ Invalid YAML: $f — $ERR"
+              FAILED=1
+            else
+              echo "✅ Valid YAML: $f"
+            fi
+          done < <(find . \( -name "*.yml" -o -name "*.yaml" \) -not -path "./.git/*" -print0)
+          [ "$FAILED" -eq 0 ] || exit 1
 
       - name: Validate AGENTS.md exists
         run: |
