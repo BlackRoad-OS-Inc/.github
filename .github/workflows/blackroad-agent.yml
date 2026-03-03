@@ -1,24 +1,33 @@
-name: 🤖 BlackRoad Shared Agent CI
+name: BlackRoad Shared Agent CI
 on:
   push:
     branches: [main, dev, master]
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   agent-identity:
     name: Load Agent Identity
     runs-on: [self-hosted, pi]
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - name: Identify branch agent
         run: |
           BRANCH="${GITHUB_REF_NAME}"
-          curl -sf "https://raw.githubusercontent.com/BlackRoad-OS-Inc/blackroad/master/.agents/${BRANCH}.json" \
-            -o .agent-identity.json 2>/dev/null || \
-          echo "{\"agent\":\"BLACKROAD\",\"branch\":\"${BRANCH}\",\"role\":\"orchestrator\"}" > .agent-identity.json
+          if curl -sf --retry 2 --max-time 10 \
+            "https://raw.githubusercontent.com/BlackRoad-OS-Inc/blackroad/master/.agents/${BRANCH}.json" \
+            -o .agent-identity.json; then
+            echo "Loaded remote agent identity for ${BRANCH}"
+          else
+            echo "{\"agent\":\"BLACKROAD\",\"branch\":\"${BRANCH}\",\"role\":\"orchestrator\"}" > .agent-identity.json
+            echo "Using default agent identity for ${BRANCH}"
+          fi
           AGENT=$(python3 -c "import json; print(json.load(open('.agent-identity.json')).get('agent','BLACKROAD'))")
-          echo "🤖 Agent: ${AGENT} | Org: ${{ github.repository_owner }} | Branch: ${BRANCH}"
-          echo "AGENT_NAME=${AGENT}" >> $GITHUB_ENV
+          echo "Agent: ${AGENT} | Org: ${{ github.repository_owner }} | Branch: ${BRANCH}"
+          echo "AGENT_NAME=${AGENT}" >> "$GITHUB_ENV"
       - name: Health ping
-        run: echo "✅ ${AGENT_NAME} active in ${{ github.repository }}"
+        run: echo "${AGENT_NAME} active in ${{ github.repository }}"

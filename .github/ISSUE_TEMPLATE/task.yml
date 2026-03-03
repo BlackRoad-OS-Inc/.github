@@ -1,6 +1,7 @@
 name: "📋 Task"
 description: Internal engineering task or chore
-labels: ["status:in-progress"]
+labels: ["task"]
+assignees: ["blackboxprogramming"]
 body:
   - type: input
     id: summary

@@ -1,20 +1,21 @@
-## 🔄 Pull Request
+## Pull Request
 
 ### Summary
-<!-- What does this PR do? -->
+<!-- What does this PR do and why? -->
 
 ### Type of Change
-- [ ] 🐛 Bug fix
-- [ ] ✨ New feature
-- [ ] 🔧 Refactor
-- [ ] 📚 Documentation
-- [ ] 🚀 Deploy / Infrastructure
-- [ ] 🤖 Agent / AI changes
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Refactor
+- [ ] Documentation
+- [ ] Deploy / Infrastructure
+- [ ] Agent / AI changes
 
 ### Testing
 - [ ] Tested locally
-- [ ] Tested on alice Pi (192.168.4.49)
+- [ ] Tested on Alice Pi (192.168.4.49)
 - [ ] Ran `br test` or equivalent
+- [ ] CI passing
 
 ### Checklist
 - [ ] No secrets committed
