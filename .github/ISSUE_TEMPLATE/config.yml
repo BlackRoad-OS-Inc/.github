@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussions
+    url: https://github.com/orgs/BlackRoad-OS-Inc/discussions
+    about: Ask questions and start conversations
+  - name: Security Vulnerabilities
+    url: https://github.com/BlackRoad-OS-Inc/.github/blob/main/SECURITY.md
+    about: Report security vulnerabilities privately via security@blackroad.ai
