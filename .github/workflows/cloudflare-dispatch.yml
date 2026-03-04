@@ -23,7 +23,7 @@ on:
       async:
         description: 'Fire-and-forget (true) or wait for result (false)'
         required: false
-        default: 'true'
+        default: true
         type: boolean
   workflow_call:
     inputs:
