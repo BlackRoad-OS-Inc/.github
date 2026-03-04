@@ -1,4 +1,4 @@
-# ✅ VERIFIED WORKING — dispatches long-running tasks to Cloudflare Workers
+# GitHub Actions workflow to dispatch long-running tasks to Cloudflare Workers
 # Requires secret CF_WORKER_TOKEN and variable CF_WORKER_URL to be configured.
 # Default CF_WORKER_URL falls back to https://workers.blackroad.io
 name: Cloudflare Worker Dispatch
