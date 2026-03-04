@@ -1,4 +1,4 @@
-# ✅ VERIFIED WORKING — pinned to commit SHA, runs every Monday 9 AM UTC
+# Workflow to automatically mark and close stale issues and pull requests; pinned to commit SHA and runs every Monday 9 AM UTC
 name: Stale Issues
 
 on:
