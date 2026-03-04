@@ -94,7 +94,13 @@ jobs:
             -d "$BODY" 2>&1) || {
             echo "⚠️  Could not reach CF Worker at ${CF_WORKER_URL}/dispatch"
             echo "   Response: $RESPONSE"
-            exit 0
+            if [ "$TASK_ASYNC_BOOL" = "false" ]; then
+              echo "❌ Dispatch failed in sync mode; failing job so callers know the task did not run."
+              exit 1
+            else
+              echo "⚠️  Dispatch failed in async mode; continuing without failing the job."
+              exit 0
+            fi
           }
 
           echo "✅ Dispatched task '${TASK_TYPE}' to Cloudflare Worker"
