@@ -1,4 +1,4 @@
-# ✅ VERIFIED WORKING — pinned to commit SHAs, runs on ubuntu-latest
+# Workflow uses pinned commit SHAs and targets ubuntu-latest
 name: 🤖 BlackRoad Shared Agent CI
 on:
   push:
