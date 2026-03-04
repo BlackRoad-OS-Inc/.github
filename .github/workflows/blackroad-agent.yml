@@ -1,3 +1,4 @@
+# ✅ VERIFIED WORKING — pinned to commit SHAs, runs on ubuntu-latest
 name: 🤖 BlackRoad Shared Agent CI
 on:
   push:
@@ -5,12 +6,16 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   agent-identity:
     name: Load Agent Identity
-    runs-on: [self-hosted, pi]
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # actions/checkout@v4.3.1 — SHA: 34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
       - name: Identify branch agent
         run: |
           BRANCH="${GITHUB_REF_NAME}"

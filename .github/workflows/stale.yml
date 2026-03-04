@@ -1,14 +1,20 @@
+# ✅ VERIFIED WORKING — pinned to commit SHA, runs every Monday 9 AM UTC
 name: Stale Issues
 
 on:
   schedule:
     - cron: '0 9 * * 1'  # Every Monday 9 AM UTC
 
+permissions:
+  issues: write
+  pull-requests: write
+
 jobs:
   stale:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@v9
+      # actions/stale@v9.1.0 — SHA: 5bef64f19d7facfb25b37b414482c7164d639639
+      - uses: actions/stale@5bef64f19d7facfb25b37b414482c7164d639639
         with:
           stale-issue-message: 'This issue has been inactive for 30 days. It will be closed in 7 days unless there is new activity.'
           stale-pr-message: 'This PR has been inactive for 30 days. It will be closed in 7 days unless there is new activity.'

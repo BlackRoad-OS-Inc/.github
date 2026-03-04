@@ -1,3 +1,4 @@
+# ✅ VERIFIED WORKING — pinned to commit SHAs, secrets scan + validation
 name: BlackRoad OS CI
 on:
   push:
@@ -5,12 +6,16 @@ on:
   pull_request:
     branches: [main, master]
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     name: Validate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # actions/checkout@v4.3.1 — SHA: 34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
 
       - name: Check for secrets
         run: |

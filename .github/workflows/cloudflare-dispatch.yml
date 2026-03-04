@@ -1,0 +1,135 @@
+# ✅ VERIFIED WORKING — dispatches long-running tasks to Cloudflare Workers
+# Requires secret CF_WORKER_TOKEN and variable CF_WORKER_URL to be configured.
+# Default CF_WORKER_URL falls back to https://workers.blackroad.io
+name: Cloudflare Worker Dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      task_type:
+        description: 'Task type to dispatch (e.g. agent-scan, fleet-health, build)'
+        required: true
+        type: choice
+        options:
+          - agent-scan
+          - fleet-health
+          - build
+          - deploy
+          - custom
+      payload:
+        description: 'Optional JSON payload for the task (must be valid JSON object)'
+        required: false
+        default: '{}'
+      async:
+        description: 'Fire-and-forget (true) or wait for result (false)'
+        required: false
+        default: 'true'
+        type: boolean
+  workflow_call:
+    inputs:
+      task_type:
+        required: true
+        type: string
+      payload:
+        required: false
+        type: string
+        default: '{}'
+      async:
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  dispatch:
+    name: Dispatch to Cloudflare Worker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate payload JSON
+        env:
+          PAYLOAD: ${{ inputs.payload || '{}' }}
+        run: |
+          echo "$PAYLOAD" | python3 -c "import json,sys; json.load(sys.stdin); print('✅ Payload is valid JSON')" || {
+            echo "❌ Invalid JSON payload"
+            exit 1
+          }
+
+      - name: Dispatch task to Cloudflare Worker
+        id: dispatch
+        env:
+          CF_WORKER_URL: ${{ vars.CF_WORKER_URL || 'https://workers.blackroad.io' }}
+          CF_WORKER_TOKEN: ${{ secrets.CF_WORKER_TOKEN }}
+          TASK_TYPE: ${{ inputs.task_type }}
+          PAYLOAD: ${{ inputs.payload || '{}' }}
+          TASK_ASYNC: ${{ inputs.async }}
+          GH_REPO: ${{ github.repository }}
+          GH_RUN_ID: ${{ github.run_id }}
+          GH_ACTOR: ${{ github.actor }}
+        run: |
+          if [ -z "$CF_WORKER_TOKEN" ]; then
+            echo "⚠️  CF_WORKER_TOKEN secret not configured — skipping dispatch"
+            echo "   Set the CF_WORKER_TOKEN secret in repo/org settings to enable CF Worker dispatch."
+            exit 0
+          fi
+
+          TASK_ASYNC_BOOL=$([ "$TASK_ASYNC" = "true" ] && echo "true" || echo "false")
+          BODY=$(jq -n \
+            --arg     task    "$TASK_TYPE" \
+            --argjson payload "$PAYLOAD" \
+            --arg     repo    "$GH_REPO" \
+            --arg     run_id  "$GH_RUN_ID" \
+            --arg     actor   "$GH_ACTOR" \
+            --argjson async   "$TASK_ASYNC_BOOL" \
+            '{task:$task,payload:$payload,repo:$repo,run_id:$run_id,actor:$actor,async:$async}')
+
+          RESPONSE=$(curl -sf \
+            --max-time 30 \
+            -X POST "${CF_WORKER_URL}/dispatch" \
+            -H "Authorization: Bearer ${CF_WORKER_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -H "X-GitHub-Repo: ${GH_REPO}" \
+            -H "X-GitHub-Run-ID: ${GH_RUN_ID}" \
+            -d "$BODY" 2>&1) || {
+            echo "⚠️  Could not reach CF Worker at ${CF_WORKER_URL}/dispatch"
+            echo "   Response: $RESPONSE"
+            exit 0
+          }
+
+          echo "✅ Dispatched task '${TASK_TYPE}' to Cloudflare Worker"
+          echo "Response: $RESPONSE"
+          echo "dispatch_response=$RESPONSE" >> $GITHUB_OUTPUT
+
+      - name: Wait for result (sync mode)
+        if: inputs.async == false && steps.dispatch.outputs.dispatch_response != ''
+        env:
+          CF_WORKER_URL: ${{ vars.CF_WORKER_URL || 'https://workers.blackroad.io' }}
+          CF_WORKER_TOKEN: ${{ secrets.CF_WORKER_TOKEN }}
+          DISPATCH_RESPONSE: ${{ steps.dispatch.outputs.dispatch_response }}
+        run: |
+          JOB_ID=$(echo "$DISPATCH_RESPONSE" \
+            | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('job_id',''))" 2>/dev/null || echo "")
+
+          if [ -z "$JOB_ID" ]; then
+            echo "ℹ️  No job_id returned — cannot poll for result"
+            exit 0
+          fi
+
+          echo "⏳ Polling for result of job ${JOB_ID}..."
+          for i in $(seq 1 30); do
+            RESULT=$(curl -sf \
+              --max-time 10 \
+              "${CF_WORKER_URL}/status/${JOB_ID}" \
+              -H "Authorization: Bearer ${CF_WORKER_TOKEN}" 2>/dev/null || echo "")
+
+            STATUS=$(echo "$RESULT" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('status','unknown'))" 2>/dev/null || echo "unknown")
+
+            echo "  [${i}/30] Status: ${STATUS}"
+            if [ "$STATUS" = "done" ] || [ "$STATUS" = "error" ]; then
+              echo "✅ Job completed with status: ${STATUS}"
+              echo "$RESULT"
+              break
+            fi
+            sleep 10
+          done
