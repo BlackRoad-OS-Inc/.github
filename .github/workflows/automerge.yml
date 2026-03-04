@@ -1,4 +1,4 @@
-# ✅ VERIFIED WORKING — auto-merges PRs from trusted bots/Copilot after checks pass
+# Auto-merges PRs from trusted bots/Copilot after required checks pass
 name: Auto-merge
 
 on:
