@@ -1,4 +1,4 @@
-# ✅ VERIFIED WORKING — pinned to commit SHAs, secrets scan + validation
+# CI workflow: pinned to commit SHAs, includes secrets scan and validation
 name: BlackRoad OS CI
 on:
   push:
