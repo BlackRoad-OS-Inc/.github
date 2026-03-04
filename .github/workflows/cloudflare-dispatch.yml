@@ -105,7 +105,11 @@ jobs:
 
           echo "✅ Dispatched task '${TASK_TYPE}' to Cloudflare Worker"
           echo "Response: $RESPONSE"
-          echo "dispatch_response=$RESPONSE" >> $GITHUB_OUTPUT
+          {
+            echo 'dispatch_response<<EOF'
+            echo "$RESPONSE"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
 
       - name: Wait for result (sync mode)
         if: inputs.async == false && steps.dispatch.outputs.dispatch_response != ''
