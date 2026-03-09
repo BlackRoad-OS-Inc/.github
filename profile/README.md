@@ -26,6 +26,8 @@ The corporate home of BlackRoad OS — a self-hosted AI platform powering 30,000
 | 📖 **Docs** | [docs.blackroad.io](https://docs.blackroad.io) |
 | 💬 **Status** | [status.blackroad.io](https://status.blackroad.io) |
 | 🤖 **Agents** | [agents.blackroad.io](https://agents.blackroad.io) |
+| 🏗️ **Architecture** | [ARCHITECTURE.md](https://github.com/BlackRoad-OS-Inc/.github/blob/main/ARCHITECTURE.md) |
+| 🤖 **Agent Scaffold** | [AGENTS.md](https://github.com/BlackRoad-OS-Inc/.github/blob/main/AGENTS.md) |
 
 ---
 
