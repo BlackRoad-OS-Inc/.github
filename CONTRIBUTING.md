@@ -3,7 +3,16 @@
 > All repositories in this org are proprietary to BlackRoad OS, Inc.
 > Contributions require signing our CLA.
 
-## Getting Started
+## Just want to try it first?
+
+No install required. Visit one of our live portals:
+
+- 🏠 [blackroad.io](https://blackroad.io) — main site
+- 🤖 [blackroadai.com](https://blackroadai.com) — try the AI
+- 🧠 [lucidia.earth](https://lucidia.earth) — personal AI memory
+- 📚 [blackboxprogramming.io](https://blackboxprogramming.io) — learn and build
+
+## Getting Started (for developers)
 
 1. Fork the relevant repo
 2. Create a branch: `git checkout -b feat/your-feature`

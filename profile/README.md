@@ -1,49 +1,69 @@
 <div align="center">
 
-# BlackRoad OS, Inc.
+<img src="https://img.shields.io/badge/BlackRoad_OS-000000?style=for-the-badge&logoColor=white" alt="BlackRoad OS" height="48">
 
-**Corporate home — core platform, SDKs, APIs, CLI, documentation, and brand.**
+# BlackRoad OS
 
-[![Website](https://img.shields.io/badge/blackroad--os--inc.github.io-000?style=flat-square&logo=github)](https://blackroad-os-inc.github.io)
+### The OS for Autonomous AI — built for dreamers, not just developers.
+
+<br>
+
+[![→ Open the Portal](https://img.shields.io/badge/→_Open_the_Portal-blackroad.io-0A0A0A?style=for-the-badge&logoColor=white)](https://blackroad.io)
+&nbsp;
+[![→ Try the AI](https://img.shields.io/badge/→_Try_the_AI-blackroadai.com-111111?style=for-the-badge&logoColor=white)](https://blackroadai.com)
+&nbsp;
+[![→ Chat Now](https://img.shields.io/badge/→_Chat_Now-lucidia.earth-1A1A1A?style=for-the-badge&logoColor=white)](https://lucidia.earth)
 
 </div>
 
 ---
 
-## Repositories
+## 👆 Start here — just click a button above
 
-| Repository | Description |
+No terminal. No setup. No jargon. Pick a portal and see it work instantly.
+
+| What you want to do | Link |
 |---|---|
-| [blackroad-os-inc.github.io](https://github.com/BlackRoad-OS-Inc/blackroad-os-inc.github.io) | BlackRoad OS GitHub Pages |
-| [blackroad-agents](https://github.com/BlackRoad-OS-Inc/blackroad-agents) | Agent definitions, prompts, and orchestration schemas for BlackRoad OS. |
-| [blackroad](https://github.com/BlackRoad-OS-Inc/blackroad) | BlackRoad OS monorepo — CLI, agents, CarPool, tools |
-| [blackroad-core](https://github.com/BlackRoad-OS-Inc/blackroad-core) | ARCHIVED: Consolidated into BlackRoad-OS-Inc/blackroad |
-| [blackroad-docs](https://github.com/BlackRoad-OS-Inc/blackroad-docs) |  Architecture documentation, governance design, brand system, roadmap, and technical specifications for BlackRoad OS. |
-| [blackroad-operator](https://github.com/BlackRoad-OS-Inc/blackroad-operator) |  CLI tooling, node bootstrap scripts, and operational control utilities for BlackRoad OS. |
-| [blackroad-web](https://github.com/BlackRoad-OS-Inc/blackroad-web) | Frontend interface and web platform for BlackRoad OS. |
-| [blackroad-brand-kit](https://github.com/BlackRoad-OS-Inc/blackroad-brand-kit) | BlackRoad OS official brand kit — templates, design system, and brand assets |
-| [blackroad-sf](https://github.com/BlackRoad-OS-Inc/blackroad-sf) | Salesforce LWC components and flows for BlackRoad OS |
-| [blackroad-api](https://github.com/BlackRoad-OS-Inc/blackroad-api) | REST API server for BlackRoad OS — OpenAPI spec, route handlers, and middleware. |
-| [blackroad-infra](https://github.com/BlackRoad-OS-Inc/blackroad-infra) |  Infrastructure-as-code, CI/CD workflows, deployment configurations, and environment orchestration. |
-| [blackroad-sdk](https://github.com/BlackRoad-OS-Inc/blackroad-sdk) | TypeScript SDK — `@blackroad/sdk` — for building on BlackRoad OS. |
-| [blackroad-math](https://github.com/BlackRoad-OS-Inc/blackroad-math) | Mathematical foundations — Alexa Louise Amundson |
-| [blackroad-gateway](https://github.com/BlackRoad-OS-Inc/blackroad-gateway) | Cloudflare Worker — tokenless AI provider gateway for BlackRoad OS. |
-| [demo-repository](https://github.com/BlackRoad-OS-Inc/demo-repository) | A code repository designed to show the best GitHub has to offer. |
-| [blackroad-chat](https://github.com/BlackRoad-OS-Inc/blackroad-chat) | BlackRoad AI Chat — Ollama-powered chat interface |
-| [blackroad-hardware](https://github.com/BlackRoad-OS-Inc/blackroad-hardware) | Hardware fleet registry, network topology, and device manifests for BlackRoad OS infrastructure. |
-| [blackroad-workerd-edge](https://github.com/BlackRoad-OS-Inc/blackroad-workerd-edge) | Self-hosted Cloudflare Workers runtime — run Workers on Pi/DO with workerd |
-| [blackroad-design](https://github.com/BlackRoad-OS-Inc/blackroad-design) | BlackRoad OS brand system — design tokens, color palette, typography, UI components |
-| [blackroad-cli](https://github.com/BlackRoad-OS-Inc/blackroad-cli) | @blackroad/cli — The BlackRoad OS command-line interface |
-
-<details>
-<summary>Archived</summary>
-
-| Repository | Description |
-|---|---|
-
-
-</details>
+| 🏠 See the main site | [blackroad.io](https://blackroad.io) |
+| 🤖 Talk to the AI | [blackroadai.com](https://blackroadai.com) |
+| 🧠 Try Lucidia — your personal AI memory | [lucidia.earth](https://lucidia.earth) |
+| 🎨 Browse the design system | [lucidia.studio](https://lucidia.studio) |
+| 🔗 Explore the network | [blackroad.network](https://blackroad.network) |
+| 🏢 Corporate info | [blackroad.company](https://blackroad.company) |
+| 📚 Learn & build | [blackboxprogramming.io](https://blackboxprogramming.io) |
+| 🔒 Security & audit trail | [roadchain.io](https://roadchain.io) |
 
 ---
 
-<sub>BlackRoad OS, Inc. — [blackroad.io](https://blackroad.io)</sub>
+## What is BlackRoad OS?
+
+**BlackRoad OS is an operating system for AI agents.** Think of it as the invisible layer that lets AI work for you automatically — across your apps, your files, your cloud, and your devices — without you having to touch a command line.
+
+- **Dream it** — describe what you want in plain English
+- **Route it** — BlackRoad figures out which AI agent handles it
+- **Done** — the agent executes, reports back, and remembers for next time
+
+---
+
+## Explore by what you care about
+
+<div align="center">
+
+| 🚀 Products | 🛠 For Developers | 🏗 Infrastructure |
+|:---:|:---:|:---:|
+| [Web Platform](https://github.com/BlackRoad-OS-Inc/blackroad-web) | [TypeScript SDK](https://github.com/BlackRoad-OS-Inc/blackroad-sdk) | [Infra as Code](https://github.com/BlackRoad-OS-Inc/blackroad-infra) |
+| [AI Chat](https://github.com/BlackRoad-OS-Inc/blackroad-chat) | [REST API](https://github.com/BlackRoad-OS-Inc/blackroad-api) | [Hardware Fleet](https://github.com/BlackRoad-OS-Inc/blackroad-hardware) |
+| [Design System](https://github.com/BlackRoad-OS-Inc/blackroad-design) | [CLI](https://github.com/BlackRoad-OS-Inc/blackroad-cli) | [Edge Gateway](https://github.com/BlackRoad-OS-Inc/blackroad-gateway) |
+| [Brand Kit](https://github.com/BlackRoad-OS-Inc/blackroad-brand-kit) | [Agent Definitions](https://github.com/BlackRoad-OS-Inc/blackroad-agents) | [Docs](https://github.com/BlackRoad-OS-Inc/blackroad-docs) |
+
+</div>
+
+---
+
+<div align="center">
+
+**Questions?** Open a [Discussion](https://github.com/orgs/BlackRoad-OS-Inc/discussions) · Email [dev@blackroad.ai](mailto:dev@blackroad.ai) · Security issues → [security@blackroad.ai](mailto:security@blackroad.ai)
+
+<sub>© BlackRoad OS, Inc. — <a href="https://blackroad.io">blackroad.io</a></sub>
+
+</div>
