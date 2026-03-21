@@ -1,0 +1,26 @@
+name: Pi Fleet Sync
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: [self-hosted, pi]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync to Pi Fleet
+        run: |
+          echo "Syncing ${{ github.event.repository.name }} to fleet..."
+          # Pull on all Pis via SSH
+          for node in alice cecilia octavia aria lucidia; do
+            ssh $node "cd ~/${{ github.event.repository.name }} && git pull --ff-only 2>/dev/null || echo 'Repo not cloned on $node'" &
+          done
+          wait
+
+      - name: Reload Services
+        run: |
+          # Restart relevant services after deploy
+          sudo systemctl reload nginx 2>/dev/null || true

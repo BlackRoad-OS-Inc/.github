@@ -1,0 +1,35 @@
+name: BlackRoad Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Cloudflare Pages
+        if: hashFiles('web/public/index.html') != ''
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ github.event.repository.name }}
+          directory: web/public
+
+      - name: Deploy Workers
+        if: hashFiles('wrangler.toml') != ''
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Notify Fleet
+        if: always()
+        run: |
+          curl -s -X POST "https://roundtrip.blackroad.io/api/chat" \
+            -H "Content-Type: application/json" \
+            -d "{\"agent\":\"roadie\",\"message\":\"Deploy: ${{ github.event.repository.name }} ${{ job.status }}\",\"channel\":\"deploys\"}" || true

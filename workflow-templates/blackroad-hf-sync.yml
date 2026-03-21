@@ -1,0 +1,30 @@
+name: HuggingFace Model Sync
+
+on:
+  push:
+    branches: [main]
+    paths: ['models/**']
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Sync Models to HuggingFace
+        if: hashFiles('models/**') != ''
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          pip install huggingface_hub
+          python3 -c "
+          from huggingface_hub import HfApi
+          api = HfApi(token='$HF_TOKEN')
+          api.upload_folder(
+            folder_path='models',
+            repo_id='blackroad/${{ github.event.repository.name }}',
+            repo_type='model',
+            create_pr=False
+          )
+          " 2>/dev/null || echo "HF sync skipped"
