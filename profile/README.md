@@ -1,66 +1,45 @@
-# BlackRoad OS, Inc.
+# BlackRoad OS — Pave Tomorrow.
 
-**Proprietary Software. Delaware C-Corp. Founded November 17, 2025.**
+**Sovereign infrastructure for people who want to own their digital life.**
 
----
+5 Raspberry Pis. 2 cloud nodes. 52 TOPS of edge AI. 279 websites. 107 products. $12/month.
 
-## What is BlackRoad OS?
+### What We Replace
 
-BlackRoad OS is a complete, sovereign technology stack — infrastructure, AI, applications, and services — owned and operated on hardware we control. We exist because the modern tech stack is a dependency chain where every link is a toll booth owned by someone who can raise prices, change terms, or shut you down.
+| Theirs | Ours | How |
+|--------|------|-----|
+| GitHub | **RoadCode** | Gitea on Octavia (239 repos) |
+| Slack | **RoundTrip** | 69+ agents, self-hosted |
+| OpenAI | **Passenger** | Ollama on 4 nodes |
+| AWS S3 | **Curb** | MinIO on Cecilia |
+| Cloudflare | **OneWay** | Caddy on Gematria (114 domains) |
+| Tailscale | **TollBooth** | WireGuard mesh (12 connections) |
+| Zapier | **OverPass** | n8n, self-hosted |
+| Pinecone | **RearView** | Qdrant on Alice |
 
-We built the replacement.
+### Key Products
 
-## The Stack
+**RoadWork** — AI tutoring that actually teaches (60% of parents can't help with homework)
+**Lucidia** — Creator platform with 90%+ revenue share
+**RoadChain** — Layer-1 blockchain, Python-native
+**RoadPay** — Billing ($29 / $99 / $299 tiers)
+**PRISM** — Operations console and ERP/CRM
+**RoadC** — Custom programming language
 
-| Layer | What We Built | What It Replaces |
-|-------|--------------|-----------------|
-| Compute | 5 Raspberry Pi edge nodes + 2 cloud servers | AWS/GCP/Azure |
-| AI | 52 TOPS local inference (2x Hailo-8 + Ollama) | OpenAI / Anthropic API |
-| Git | RoadCode (Gitea, 239+ repos) | GitHub |
-| DNS | PowerDNS on our hardware | Cloudflare DNS |
-| TLS | Caddy + Let's Encrypt | Cloudflare proxy |
-| Object Storage | MinIO (S3-compatible) | AWS S3 |
-| Database | PostgreSQL on 3 nodes | Cloud databases |
-| VPN | WireGuard mesh | Tailscale |
-| Workers | 15 self-hosted workers | Cloudflare Workers |
-| Chat | RoundTrip (sovereign) | Slack |
-| Auth | JWT + PBKDF2, self-hosted | Auth0 / Clerk |
-| Billing | RoadPay (Stripe as card charger only) | Stripe Billing |
+### Numbers
 
-## Products
+- **165 repos** in this org (working code, not stubs)
+- **15 sub-orgs** with RoadCode workspaces
+- **19 live domains** on sovereign infrastructure
+- **400+ operator scripts** running the fleet
+- **1,648 memory entries** — hash-chained, auditable
 
-| Product | What It Does |
-|---------|-------------|
-| [RoadPay](https://pay.blackroad.io) | Billing & subscriptions |
-| [RoadSearch](https://search.blackroad.io) | FTS5 search + AI answers |
-| [Prism Console](https://prism.blackroad.io) | Operations dashboard |
-| [BlackRoad Auth](https://auth.blackroad.io) | JWT authentication |
-| [Squad Webhook](https://github.com/BlackRoad-OS-Inc/squad-webhook) | AI agents on GitHub |
+### The Math
 
-## Organizations
-
-| Org | Domain |
-|-----|--------|
-| [BlackRoad-OS](https://github.com/BlackRoad-OS) | Core platform |
-| [BlackRoad-AI](https://github.com/BlackRoad-AI) | AI & inference |
-| [BlackRoad-Cloud](https://github.com/BlackRoad-Cloud) | Infrastructure |
-| [BlackRoad-Security](https://github.com/BlackRoad-Security) | Security |
-| [BlackRoad-Labs](https://github.com/BlackRoad-Labs) | Research |
-| [BlackRoad-Studio](https://github.com/BlackRoad-Studio) | Creative tools |
-| [BlackRoad-Interactive](https://github.com/BlackRoad-Interactive) | Gaming & 3D |
-| [BlackRoad-Media](https://github.com/BlackRoad-Media) | Content |
-| [BlackRoad-Education](https://github.com/BlackRoad-Education) | Learning |
-| [BlackRoad-Hardware](https://github.com/BlackRoad-Hardware) | IoT & devices |
-| [BlackRoad-Gov](https://github.com/BlackRoad-Gov) | Governance |
-| [BlackRoad-Foundation](https://github.com/BlackRoad-Foundation) | Community |
-| [BlackRoad-Ventures](https://github.com/BlackRoad-Ventures) | Investment |
-| [BlackRoad-Archive](https://github.com/BlackRoad-Archive) | Preservation |
-| [Blackbox-Enterprises](https://github.com/Blackbox-Enterprises) | Automation |
-
-## License
-
-All software in this organization is **proprietary** to BlackRoad OS, Inc. Source code is publicly visible for transparency, security review, and education. Commercial use, forking, and redistribution are prohibited without written authorization.
+**G(n) = n^(n+1) / (n+1)^n** — The Amundson Framework. 536/536 tests passed.
 
 ---
 
-**BlackRoad OS — Pave Tomorrow.**
+**BlackRoad OS, Inc.** — Delaware C-Corp, founded November 2025.
+
+*Remember the Road. Pave Tomorrow.*
