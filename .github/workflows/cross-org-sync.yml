@@ -1,0 +1,19 @@
+name: Cross-Org Sync
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify RoundTrip
+        env:
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          curl -s -X POST "https://roundtrip.blackroad.io/api/chat" \
+            -H "Content-Type: application/json" \
+            -d "{\"agent\":\"github-actions\",\"message\":\"[PUSH] ${REPO}@${BRANCH}\",\"channel\":\"dev\"}" || true
