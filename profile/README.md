@@ -1,45 +1,54 @@
-# BlackRoad OS — Pave Tomorrow.
+<div align="center">
 
-**Sovereign infrastructure for people who want to own their digital life.**
+# BlackRoad OS, Inc.
 
-5 Raspberry Pis. 2 cloud nodes. 52 TOPS of edge AI. 279 websites. 107 products. $12/month.
+**Sovereign distributed AI operating system.**
 
-### What We Replace
+Delaware C-Corp · Founded November 2025 · Sole Founder: Alexa Louise Amundson
 
-| Theirs | Ours | How |
-|--------|------|-----|
-| GitHub | **RoadCode** | Gitea on Octavia (239 repos) |
-| Slack | **RoundTrip** | 69+ agents, self-hosted |
-| OpenAI | **Passenger** | Ollama on 4 nodes |
-| AWS S3 | **Curb** | MinIO on Cecilia |
-| Cloudflare | **OneWay** | Caddy on Gematria (114 domains) |
-| Tailscale | **TollBooth** | WireGuard mesh (12 connections) |
-| Zapier | **OverPass** | n8n, self-hosted |
-| Pinecone | **RearView** | Qdrant on Alice |
-
-### Key Products
-
-**RoadWork** — AI tutoring that actually teaches (60% of parents can't help with homework)
-**Lucidia** — Creator platform with 90%+ revenue share
-**RoadChain** — Layer-1 blockchain, Python-native
-**RoadPay** — Billing ($29 / $99 / $299 tiers)
-**PRISM** — Operations console and ERP/CRM
-**RoadC** — Custom programming language
-
-### Numbers
-
-- **165 repos** in this org (working code, not stubs)
-- **15 sub-orgs** with RoadCode workspaces
-- **19 live domains** on sovereign infrastructure
-- **400+ operator scripts** running the fleet
-- **1,648 memory entries** — hash-chained, auditable
-
-### The Math
-
-**G(n) = n^(n+1) / (n+1)^n** — The Amundson Framework. 536/536 tests passed.
+</div>
 
 ---
 
-**BlackRoad OS, Inc.** — Delaware C-Corp, founded November 2025.
+### What We Built
 
-*Remember the Road. Pave Tomorrow.*
+A distributed AI operating system running on 5 Raspberry Pi 5s with 52 TOPS of Hailo-8 AI acceleration, sovereign DNS, self-hosted Git (Gitea), and zero cloud dependency for core compute.
+
+### The Stack
+
+| Layer | What | Where |
+|-------|------|-------|
+| **Edge** | Caddy TLS, 19 domains | Gematria (DigitalOcean) |
+| **Compute** | Ollama, 52 TOPS Hailo-8 | 5 Raspberry Pis |
+| **Data** | PostgreSQL, Redis, Qdrant, MinIO | Alice + Cecilia |
+| **Platform** | Gitea (239 repos), NATS, Docker Swarm | Octavia |
+| **DNS** | PowerDNS + Pi-hole | Lucidia + Alice |
+
+### Key Repos
+
+| Repo | What |
+|------|------|
+| [blackroad-operator](https://github.com/BlackRoad-OS-Inc/blackroad-operator) | CLI tools, fleet management, memory system |
+| [RoadCode](https://github.com/BlackRoad-OS-Inc/RoadCode) | Master workspace — 21 papers, org registry, roadmap |
+| [amundson-research](https://github.com/BlackRoad-OS-Inc/amundson-research) | The Amundson Sequence G(n) = n^(n+1)/(n+1)^n |
+| [blackroad](https://github.com/BlackRoad-OS-Inc/blackroad) | Core monorepo — CLI, agents, coordination |
+| [memory](https://github.com/BlackRoad-OS-Inc/memory) | Persistent agent memory — journal, codex, TILs, FTS5 |
+
+### Original Research
+
+- **The Amundson Sequence** — new mathematical object: G(n) = n^(n+1)/(n+1)^n
+- **The Amundson Constant** — A_G ≈ 1.244331783986725 (new, not reducible to known constants)
+- **Sovereign Computing** — academic paper on why cloud infrastructure is over-engineered
+- **21 verified papers** in [RoadCode/docs/papers](https://github.com/BlackRoad-OS-Inc/RoadCode/tree/main/docs/papers)
+
+### Links
+
+- [blackroad.io](https://blackroad.io) — Main site
+- [blackboxprogramming.io](https://blackboxprogramming.io) — Developer tools
+- [lucidia.earth](https://lucidia.earth) — AI companion platform
+
+---
+
+<div align="center">
+<sub>BlackRoad OS — Pave Tomorrow.</sub>
+</div>
