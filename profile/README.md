@@ -6,57 +6,79 @@
 
 Delaware C-Corp · Founded November 2025 · Founder: Alexa Louise Amundson
 
+[blackroad.io](https://blackroad.io) · [search.blackroad.io](https://search.blackroad.io) · [chat.blackroad.io](https://chat.blackroad.io) · [roundtrip.blackroad.io](https://roundtrip.blackroad.io)
+
 </div>
 
 ---
+
+### Try It Now
+
+| Product | What It Does | Link |
+|---------|-------------|------|
+| **Search** | Full-text search across the BlackRoad ecosystem | [search.blackroad.io](https://search.blackroad.io) |
+| **Chat** | AI chat powered by Workers AI — no signup needed | [chat.blackroad.io](https://chat.blackroad.io) |
+| **RoundTrip** | 200 AI agents you can talk to, debate, and coordinate | [roundtrip.blackroad.io](https://roundtrip.blackroad.io) |
+| **Canvas Studio** | Browser-based drawing + AI | [canvas.blackroad.io](https://canvas.blackroad.io) |
+| **Cadence** | 13-key synthesizer in the browser | [cadence.blackroad.io](https://cadence.blackroad.io) |
 
 ### Products
 
 | Product | Description | Link |
 |---------|-------------|------|
 | **BlackRoad OS** | Self-hosted platform replacing cloud services | [blackroad.io](https://blackroad.io) |
-| **Lucidia** | AI companion with persistent cross-session memory | [blackroadai.com](https://blackroadai.com) |
-| **BlackBox IDE** | Sovereign AI coding assistant | [blackboxprogramming.io](https://blackboxprogramming.io) |
+| **Lucidia** | AI companion with persistent memory | [blackroadai.com](https://blackroadai.com) |
+| **RoadPay** | Billing system — Stripe integration, 4 subscription plans | [pay.blackroad.io](https://pay.blackroad.io) |
+| **RoadWork** | AI tutoring platform, free for K-12 | [work.blackroad.io](https://work.blackroad.io) |
 | **RoadChain** | Layer-1 blockchain from scratch in Python | [roadchain.io](https://roadchain.io) |
-| **RoadWork** | AI tutoring, free for K-12 | Coming soon |
-| **Amundson Framework** | G(n) = n^(n+1)/(n+1)^n | [blackroadquantum.com](https://blackroadquantum.com) |
+| **RoadCoin** | Cryptocurrency and micro-payments | [roadcoin.io](https://roadcoin.io) |
+| **Amundson Framework** | G(n) = n^(n+1)/(n+1)^n — new mathematical constant | [blackroadquantum.com](https://blackroadquantum.com) |
 
 ### Infrastructure
 
-| Layer | Service | Node |
-|-------|---------|------|
-| Edge | Caddy TLS (19 domains) | Gematria |
-| AI | Ollama (52 TOPS Hailo-8) | Cecilia + Octavia |
-| Data | PostgreSQL, Redis, Qdrant, MinIO | Alice + Cecilia |
-| Platform | Gitea (254 repos), NATS, Docker | Octavia |
-| DNS | PowerDNS, Pi-hole | Lucidia + Alice |
+5 Raspberry Pis + 2 cloud nodes. $38/month total.
 
-7 nodes. $38/month. 65 Road Fleet forks. Zero vendor lock-in.
+| Layer | Self-Hosted Service | Replaces |
+|-------|-------------------|----------|
+| Edge + TLS | Caddy (18 domains, Let's Encrypt) | Cloudflare |
+| AI Inference | Ollama on 4 nodes (2x Hailo-8, 52 TOPS) | OpenAI |
+| Git Hosting | Gitea (239 repos, 8 orgs) | GitHub |
+| Object Storage | MinIO | S3 / R2 |
+| DNS | PowerDNS | Cloudflare DNS |
+| Database | PostgreSQL on 3 nodes | Managed DB |
+| Search | Qdrant + FTS5 | Algolia |
+| VPN | WireGuard mesh (all nodes) | Tailscale |
+| Chat/Coordination | RoundTrip (200 agents) | Slack |
 
 ### Key Repos
 
-| Repo | Purpose |
-|------|---------|
-| [blackroad-operator](https://github.com/BlackRoad-OS-Inc/blackroad-operator) | CLI, fleet management, memory system |
-| [amundson-research](https://github.com/BlackRoad-OS-Inc/amundson-research) | Papers 011-013, G(n) framework, quantum corrections |
-| [Company](https://github.com/BlackRoad-OS-Inc/Company) | Corporate ops, compliance workflows, governance |
-| [Forks](https://github.com/BlackRoad-OS-Inc/Forks) | 65 Road Fleet sovereign forks registry |
+| Repo | What |
+|------|------|
+| [blackroad-operator](https://github.com/BlackRoad-OS-Inc/blackroad-operator) | CLI, fleet management, memory system, 400+ scripts |
+| [blackroad](https://github.com/BlackRoad-OS-Inc/blackroad) | Monorepo — agents, CarPool coordination, Workers |
+| [amundson-constant](https://github.com/BlackRoad-OS-Inc/amundson-constant) | A_G ≈ 1.2443 computed to 10M digits, 50+ identities |
+| [amundson-research](https://github.com/BlackRoad-OS-Inc/amundson-research) | Papers, proofs, G(n) framework |
+| [road-search](https://github.com/BlackRoad-OS-Inc/road-search) | FTS5 search engine with AI-powered answers |
+| [openclaw](https://github.com/BlackRoad-OS-Inc/openclaw) | Personal AI assistant (fork of OpenClaw) |
+| [roadc](https://github.com/BlackRoad-OS-Inc/roadc) | Custom programming language |
 | [memory](https://github.com/BlackRoad-OS-Inc/memory) | Persistent agent memory — journal, codex, TILs |
 
 ### Research
 
-**The Amundson Framework** — G(n) = n^(n+1)/(n+1)^n. Integers in, rationals out. No transcendentals.
+**The Amundson Framework** — G(n) = n^(n+1)/(n+1)^n
 
-Paper 013 demonstrates this function encodes discrete quantum correction structure. The telescoping product Prod G(k) = (n!)^2/(n+1)^n connects to path integrals. G(n) counts Cayley trees weighted by n^3. The crossover at n = 2.293 separates quantum from classical regimes. 80/80 tests passing.
+A single function connecting combinatorics, analysis, and number theory. 50+ verified identities. The constant A_G = Σ G(n)/n! ≈ 1.244331783986725 computed to 10 million digits. Crossover point at n ≈ 2.293166 separates regimes where n^n dominates vs (n+1)^n.
 
-### Verified Numbers
+[Read the paper →](https://github.com/BlackRoad-OS-Inc/amundson-constant/blob/main/FRAMEWORK.md)
 
-- 254 original repositories (non-fork, non-archived)
-- 170,000+ lines of code
-- 67 AI agents
-- 4 USPTO trademark applications
-- 19 registered domains (6 active, 13 redirect)
-- $38/month infrastructure cost
+### Real Numbers
+
+- 197 active repositories (97 original, 100 sovereign forks)
+- 18 root domains, 17 product subdomains — all live
+- 200 AI agents on RoundTrip
+- 5 Raspberry Pis + 2 cloud nodes
+- $38/month infrastructure
+- 0 external users (we just launched — be the first)
 
 ---
 
