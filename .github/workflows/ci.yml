@@ -1,0 +1,28 @@
+name: BlackRoad CI
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check for secrets
+        run: |
+          # Scan for common secret patterns
+          if grep -rn "sk_live_\|AKIA\|ghp_\|gho_\|-----BEGIN.*PRIVATE" --include="*.js" --include="*.py" --include="*.ts" --include="*.sh" --include="*.env" . 2>/dev/null | grep -v node_modules | grep -v .git; then
+            echo "::error::Potential secrets detected!"
+            exit 1
+          fi
+          echo "No secrets found"
+      
+      - name: Validate structure
+        run: |
+          # Check required files
+          [ -f LICENSE ] && echo "✓ LICENSE" || echo "⚠ No LICENSE"
+          [ -f README.md ] && echo "✓ README.md" || echo "⚠ No README.md"
+          echo "Validation complete"
