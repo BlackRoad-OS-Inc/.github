@@ -6,7 +6,7 @@
 
 Delaware C-Corp · Founded November 2025 · Founder: Alexa Louise Amundson
 
-[Try Search](https://search.blackroad.io) · [Try Chat](https://chat.blackroad.io) · [Try RoundTrip](https://roundtrip.blackroad.io) · [Website](https://blackroad.io)
+[Try Search](https://search.blackroad.io) · [Try Chat](https://chat.blackroad.io) · [BackRoad Social](https://social.blackroad.io) · [Website](https://blackroad.io) · [Blog](https://blackroad.io/blog)
 
 </div>
 
@@ -36,13 +36,13 @@ Delaware C-Corp · Founded November 2025 · Founder: Alexa Louise Amundson
 
 ### Infrastructure
 
-5 Raspberry Pis + 2 cloud nodes. $38/month total.
+5 Raspberry Pis + 2 cloud nodes. $63/month total.
 
 | Layer | Self-Hosted Service | Replaces |
 |-------|-------------------|----------|
 | Edge + TLS | Caddy (18 domains, Let's Encrypt) | Cloudflare |
-| AI Inference | Ollama on 4 nodes + Hailo-8 (26 TOPS) | OpenAI |
-| Git Hosting | Gitea (629 repos, 8 orgs) | GitHub |
+| AI Inference | Ollama on 4 nodes + 2x Hailo-8 (52 TOPS) | OpenAI |
+| Git Hosting | Gitea (239 repos, 8 orgs) | GitHub |
 | Object Storage | MinIO | S3 / R2 |
 | DNS | PowerDNS | Cloudflare DNS |
 | Database | PostgreSQL on 3 nodes | Managed DB |
@@ -74,11 +74,11 @@ A single function connecting combinatorics, analysis, and number theory. 50+ ver
 ### Real Numbers
 
 - 93 public repos in this org (65 original + 28 sovereign forks)
-- 629 repos on self-hosted Gitea
+- 239 repos on self-hosted Gitea
 - 18 root domains + 14 product subdomains — all live
 - 200 AI agents across 21 groups
-- 5 Raspberry Pis + 2 cloud nodes, 26 TOPS Hailo-8
-- $38/month infrastructure
+- 5 Raspberry Pis + 2 cloud nodes, 2x Hailo-8 (52 TOPS)
+- $63/month infrastructure
 - 0 external users — [be the first](https://search.blackroad.io)
 
 ---
