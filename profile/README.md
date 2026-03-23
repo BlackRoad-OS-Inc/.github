@@ -1,19 +1,16 @@
 # BlackRoad-OS-Inc
 
-**Parent company — Delaware C-Corp** — Part of the BlackRoad OS ecosystem.
+**BlackRoad OS, Inc. — Delaware C-Corp, incorporated 2025. Sovereign AI infrastructure. Remember the Road. Pave Tomorrow.**
 
-> 18 orgs · 20 domains · 200 agents · Sovereign infrastructure
+> Remember the Road. Pave Tomorrow.
 
-262 public repositories | [blackroad.io](https://blackroad.io) | [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc)
+BlackRoad OS, Inc. — Delaware C-Corp, incorporated November 17, 2025.
 
-## Key Repositories
+321 public repositories | [blackroad.io](https://blackroad.io) | [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc)
 
-- [blackroad-os-inc.github.io](https://github.com/BlackRoad-OS-Inc/blackroad-os-inc.github.io) — BlackRoad OS GitHub Pages[0:60]
-- [.github](https://github.com/BlackRoad-OS-Inc/.github) — Organization profile and shared configurations for BlackRoad OS, Inc.[0:60]
-- [search.blackroad.io](https://github.com/BlackRoad-OS-Inc/search.blackroad.io) — BlackRoad ecosystem search — 2,280+ repos[0:60]
-- [blackroad-os-prism-enterprise](https://github.com/BlackRoad-OS-Inc/blackroad-os-prism-enterprise) — BlackRoad PRISM Enterprise - Full ERP/CRM system with ISI analysis, sales ops, PLM, CPQ, and AI agents (16K+ files)[0:60]
-- [blackroadinc.us](https://github.com/BlackRoad-OS-Inc/blackroadinc.us) — BlackRoad OS, Inc. — blackroadinc.us domain repo. Proprietary.[0:60]
+18 orgs · 20 domains · 200 agents · 2,156 repos · Sovereign infrastructure
 
 ---
 
-Proprietary — BlackRoad OS, Inc. All rights reserved.
+Proprietary — BlackRoad OS, Inc. All rights reserved. Incorporated 2025.
+
