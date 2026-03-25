@@ -1,52 +1,43 @@
-# Contributing to BlackRoad OS, Inc.
+# Contributing to BlackRoad OS
 
-> All repositories in this org are proprietary to BlackRoad OS, Inc.
-> Contributions require signing our CLA.
+Thank you for your interest in contributing.
 
 ## Getting Started
 
-1. Fork the relevant repo
-2. Create a branch: `git checkout -b feat/your-feature`
-3. Make your changes following the [Code Standards](#code-standards)
-4. Run tests locally
-5. Open a PR using the template
+1. Fork the repository
+2. Create a feature branch from `main`
+3. Make your changes
+4. Submit a pull request
 
-## Code Standards
+## Pull Request Guidelines
 
-| Language | Formatter | Linter |
-|----------|-----------|--------|
-| TypeScript/JS | Prettier | ESLint |
-| Python | Black | Ruff |
-| Go | gofmt | golangci-lint |
-| Shell | shfmt | shellcheck |
-
-## Commit Messages
-
-Follow [Conventional Commits](https://conventionalcommits.org):
-
-```
-feat: add streaming support to SDK
-fix: handle null agent response in gateway
-docs: update CLI installation guide
-chore: bump dependencies
-```
+- Keep PRs focused on a single change
+- Write clear commit messages explaining *why*, not just *what*
+- Ensure your branch is up to date with `main` before submitting
+- All PRs to main/master require review (enterprise policy)
 
 ## Branch Naming
 
-- `feat/description` — new features
-- `fix/issue-number` — bug fixes
-- `docs/section` — documentation updates
-- `chore/task` — maintenance
+- `feature/description` — new functionality
+- `fix/description` — bug fixes
+- `docs/description` — documentation changes
 
-## Pull Request Process
+## Code Standards
 
-1. Ensure CI passes
-2. Update `CHANGELOG.md`
-3. Request review from a CODEOWNER
-4. Squash merge after approval
+- Follow existing code style in the repository
+- Add tests for new functionality where applicable
+- Do not commit secrets, credentials, or environment files
+
+## Reporting Issues
+
+- Use the repository's issue templates when available
+- Include steps to reproduce for bug reports
+- Check existing issues before creating duplicates
+
+## License
+
+By contributing, you agree that your contributions will be licensed under the repository's existing license. BlackRoad OS repositories use a proprietary license unless otherwise stated.
 
 ## Questions?
 
-Open a [Discussion](https://github.com/orgs/BlackRoad-OS-Inc/discussions) or email dev@blackroad.ai.
-
-© BlackRoad OS, Inc. All rights reserved.
+Open a discussion or reach out at **hello@blackroad.io**.

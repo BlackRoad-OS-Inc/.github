@@ -1,29 +1,15 @@
-## 🔄 Pull Request
+## Summary
 
-### Summary
-<!-- What does this PR do? -->
+<!-- What does this PR do? Keep it to 1-3 sentences. -->
 
-### Type of Change
-- [ ] 🐛 Bug fix
-- [ ] ✨ New feature
-- [ ] 🔧 Refactor
-- [ ] 📚 Documentation
-- [ ] 🚀 Deploy / Infrastructure
-- [ ] 🤖 Agent / AI changes
+## Changes
 
-### Testing
+<!-- Bullet list of what changed -->
+
+## Testing
+
+<!-- How was this tested? -->
+
 - [ ] Tested locally
-- [ ] Tested on alice Pi (192.168.4.49)
-- [ ] Ran `br test` or equivalent
-
-### Checklist
-- [ ] No secrets committed
-- [ ] AGENTS.md updated if adding new agent capabilities
-- [ ] Memory journal updated if relevant
-- [ ] CF Worker redeployed if subdomain changed
-
-### Related Issues
-Closes #
-
----
-*BlackRoad OS, Inc. — All contributions are work-for-hire.*
+- [ ] Tests pass
+- [ ] No secrets or credentials included
