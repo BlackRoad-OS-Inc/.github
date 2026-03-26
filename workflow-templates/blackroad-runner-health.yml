@@ -1,0 +1,31 @@
+name: BlackRoad Runner Health Check
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  health:
+    strategy:
+      matrix:
+        runner: [octavia, lucidia, gematria, anastasia, cecilia, aria]
+      fail-fast: false
+    runs-on: [self-hosted, blackroad, '${{ matrix.runner }}']
+    timeout-minutes: 5
+    steps:
+      - name: System info
+        run: |
+          echo "Runner: $(hostname)"
+          echo "Uptime: $(uptime)"
+          echo "Disk: $(df -h / | tail -1)"
+          echo "Memory: $(free -h 2>/dev/null | head -2 || vm_stat 2>/dev/null | head -5)"
+          echo "CPU: $(nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null)"
+      - name: Check Docker
+        run: docker info 2>/dev/null | head -5 || echo "Docker not available"
+      - name: Check Node
+        run: node --version 2>/dev/null || echo "Node not installed"
+      - name: Check Python
+        run: python3 --version 2>/dev/null || echo "Python not installed"

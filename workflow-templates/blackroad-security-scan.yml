@@ -1,0 +1,32 @@
+name: BlackRoad Security Scan
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 6 * * 1'
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  scan:
+    runs-on: [self-hosted, blackroad]
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Check for secrets in code
+        run: |
+          echo "Scanning for secrets..."
+          if grep -rn --include='*.py' --include='*.js' --include='*.ts' --include='*.sh' --include='*.env' \
+            -E '(api[_-]?key|secret|password|token|credential)\s*[=:]\s*["'\'][^"'\']' . 2>/dev/null | grep -v node_modules | grep -v .git; then
+            echo "::warning::Potential secrets found in code"
+          else
+            echo "No secrets detected"
+          fi
+      - name: Check file permissions
+        run: |
+          find . -name '*.sh' -not -perm -u+x -not -path './.git/*' | head -20 || true
+      - name: Check for large files
+        run: |
+          find . -size +50M -not -path './.git/*' 2>/dev/null | head -10 || echo "No large files"
