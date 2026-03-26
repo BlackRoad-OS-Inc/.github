@@ -20,9 +20,7 @@ jobs:
       contains(fromJSON('["all", "pi", "octavia"]'), github.event.inputs.target)
     runs-on: [self-hosted, octavia]
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
+      # No checkout needed for fleet commands
       - name: Run on Octavia
         run: |
           echo "::group::Node Info"
@@ -51,9 +49,7 @@ jobs:
       contains(fromJSON('["all", "pi", "lucidia"]'), github.event.inputs.target)
     runs-on: [self-hosted, lucidia]
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
+      # No checkout needed for fleet commands
       - name: Run on Lucidia
         run: |
           echo "::group::Node Info"
@@ -82,9 +78,7 @@ jobs:
       contains(fromJSON('["all", "droplet", "gematria"]'), github.event.inputs.target)
     runs-on: [self-hosted, gematria]
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
+      # No checkout needed for fleet commands
       - name: Run on Gematria
         run: |
           echo "::group::Node Info"
@@ -113,9 +107,7 @@ jobs:
       contains(fromJSON('["all", "droplet", "anastasia"]'), github.event.inputs.target)
     runs-on: [self-hosted, anastasia]
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
+      # No checkout needed for fleet commands
       - name: Run on Anastasia
         run: |
           echo "::group::Node Info"
