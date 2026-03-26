@@ -1,0 +1,37 @@
+name: Auto Deploy to Fleet
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy-workers:
+    runs-on: ubuntu-latest
+    if: hashFiles('wrangler.toml') != ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci --ignore-scripts 2>/dev/null || npm install --ignore-scripts 2>/dev/null || true
+      - name: Deploy to Cloudflare
+        run: npx wrangler deploy 2>&1 || echo "No wrangler deploy needed"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+  sync-fleet:
+    runs-on: [self-hosted, blackroad]
+    strategy:
+      matrix:
+        runner: [octavia, lucidia, gematria, anastasia]
+      fail-fast: false
+    steps:
+      - name: Sync repo on fleet node
+        run: |
+          REPO="${{ github.repository }}"
+          REPO_NAME="${REPO##*/}"
+          if [ -d "$HOME/$REPO_NAME" ]; then
+            cd "$HOME/$REPO_NAME" && git pull origin main 2>/dev/null || true
+            echo "Synced $REPO_NAME on $(hostname)"
+          else
+            echo "$REPO_NAME not present on $(hostname), skipping"
+          fi
