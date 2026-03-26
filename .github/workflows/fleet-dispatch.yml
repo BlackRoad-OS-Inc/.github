@@ -20,25 +20,15 @@ jobs:
       contains(fromJSON('["all", "pi", "octavia"]'), github.event.inputs.target)
     runs-on: [self-hosted, octavia]
     steps:
-      # No checkout needed for fleet commands
       - name: Run on Octavia
         run: |
-          echo "::group::Node Info"
-          hostname && uname -a && echo "IP: $(hostname -I | awk '{print $1}')"
-          echo "::endgroup::"
           CMD="${{ github.event.inputs.command || github.event.client_payload.command || 'status' }}"
-          echo "Running: $CMD"
+          echo "=== OCTAVIA ($(hostname -I | awk '{print $1}')) ==="
           if [ "$CMD" = "status" ]; then
             echo "Disk:" && df -h / | tail -1
-            echo "Memory:" && free -h | head -2
-            echo "Docker:" && docker ps --format 'table {{.Names}}\t{{.Status}}' 2>/dev/null || echo "no docker"
-            echo "Gitea:" && curl -s http://localhost:3100/api/v1/version 2>/dev/null || echo "not running"
-          elif [ "$CMD" = "deploy" ]; then
-            echo "Pulling latest..." && git pull origin main 2>/dev/null || true
-            echo "Deployed on octavia"
-          elif [ "$CMD" = "sync" ]; then
-            cd ~/blackroad-operator 2>/dev/null && git pull origin main 2>/dev/null || true
-            echo "Synced operator on octavia"
+            echo "RAM:" && free -h | grep Mem
+            echo "Docker:" && docker ps --format '{{.Names}}: {{.Status}}' 2>/dev/null | head -10
+            echo "Gitea:" && curl -s http://localhost:3100/api/v1/version 2>/dev/null
           else
             eval "$CMD"
           fi
@@ -49,27 +39,70 @@ jobs:
       contains(fromJSON('["all", "pi", "lucidia"]'), github.event.inputs.target)
     runs-on: [self-hosted, lucidia]
     steps:
-      # No checkout needed for fleet commands
       - name: Run on Lucidia
         run: |
-          echo "::group::Node Info"
-          hostname && uname -a && echo "IP: $(hostname -I | awk '{print $1}')"
-          echo "::endgroup::"
           CMD="${{ github.event.inputs.command || github.event.client_payload.command || 'status' }}"
-          echo "Running: $CMD"
+          echo "=== LUCIDIA ($(hostname -I | awk '{print $1}')) ==="
           if [ "$CMD" = "status" ]; then
             echo "Disk:" && df -h / | tail -1
-            echo "Memory:" && free -h | head -2
-            echo "Ollama:" && curl -s http://localhost:11434/api/tags 2>/dev/null | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'{len(d.get(\"models\",[]))} models')" 2>/dev/null || echo "not running"
-            echo "Nginx sites:" && ls /etc/nginx/sites-enabled/ 2>/dev/null | wc -l
-          elif [ "$CMD" = "deploy" ]; then
-            echo "Pulling latest..." && git pull origin main 2>/dev/null || true
-            echo "Deployed on lucidia"
-          elif [ "$CMD" = "sync" ]; then
-            cd ~/blackroad-operator 2>/dev/null && git pull origin main 2>/dev/null || true
-            echo "Synced operator on lucidia"
+            echo "RAM:" && free -h | grep Mem
+            echo "Ollama:" && curl -s http://localhost:11434/api/tags 2>/dev/null | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'{len(d.get(\"models\",[]))} models')" 2>/dev/null
+            echo "Nginx:" && ls /etc/nginx/sites-enabled/ 2>/dev/null | wc -l
           else
             eval "$CMD"
+          fi
+
+  aria:
+    if: >-
+      github.event_name == 'repository_dispatch' ||
+      contains(fromJSON('["all", "pi", "aria"]'), github.event.inputs.target)
+    runs-on: [self-hosted, aria]
+    steps:
+      - name: Run on Aria
+        run: |
+          CMD="${{ github.event.inputs.command || github.event.client_payload.command || 'status' }}"
+          echo "=== ARIA ($(hostname -I | awk '{print $1}')) ==="
+          if [ "$CMD" = "status" ]; then
+            echo "Disk:" && df -h / | tail -1
+            echo "RAM:" && free -h | grep Mem
+            echo "Ollama:" && curl -s http://localhost:11434/api/tags 2>/dev/null | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'{len(d.get(\"models\",[]))} models')" 2>/dev/null
+          else
+            eval "$CMD"
+          fi
+
+  cecilia:
+    if: >-
+      github.event_name == 'repository_dispatch' ||
+      contains(fromJSON('["all", "pi", "cecilia"]'), github.event.inputs.target)
+    runs-on: [self-hosted, cecilia]
+    steps:
+      - name: Run on Cecilia
+        run: |
+          CMD="${{ github.event.inputs.command || github.event.client_payload.command || 'status' }}"
+          echo "=== CECILIA ($(hostname -I | awk '{print $1}')) ==="
+          if [ "$CMD" = "status" ]; then
+            echo "Disk:" && df -h / | tail -1
+            echo "RAM:" && free -h | grep Mem
+            echo "Ollama:" && curl -s http://localhost:11434/api/tags 2>/dev/null | python3 -c "import json,sys; d=json.load(sys.stdin); [print(f'  {m[\"name\"]}') for m in d.get('models',[])]" 2>/dev/null
+            echo "MinIO:" && curl -s http://localhost:9000/minio/health/live 2>/dev/null && echo "live" || echo "down"
+          else
+            eval "$CMD"
+          fi
+
+  alice:
+    if: >-
+      github.event_name == 'repository_dispatch' ||
+      contains(fromJSON('["all", "pi", "alice"]'), github.event.inputs.target)
+    runs-on: [self-hosted, octavia]
+    steps:
+      - name: Run on Alice (via SSH from Octavia)
+        run: |
+          CMD="${{ github.event.inputs.command || github.event.client_payload.command || 'status' }}"
+          echo "=== ALICE (192.168.4.49 via octavia) ==="
+          if [ "$CMD" = "status" ]; then
+            ssh -o ConnectTimeout=5 -o StrictHostKeyChecking=no pi@192.168.4.49 "echo 'Disk:' && df -h / | tail -1 && echo 'RAM:' && free -h | grep Mem && echo 'Services:' && systemctl list-units --type=service --state=running 2>/dev/null | grep -iE 'nginx|pihole|postgres|qdrant|redis|nats' | awk '{print \$1}'"
+          else
+            ssh -o ConnectTimeout=5 -o StrictHostKeyChecking=no pi@192.168.4.49 "$CMD"
           fi
 
   gematria:
@@ -78,25 +111,15 @@ jobs:
       contains(fromJSON('["all", "droplet", "gematria"]'), github.event.inputs.target)
     runs-on: [self-hosted, gematria]
     steps:
-      # No checkout needed for fleet commands
       - name: Run on Gematria
         run: |
-          echo "::group::Node Info"
-          hostname && uname -a && echo "IP: $(hostname -I | awk '{print $1}')"
-          echo "::endgroup::"
           CMD="${{ github.event.inputs.command || github.event.client_payload.command || 'status' }}"
-          echo "Running: $CMD"
+          echo "=== GEMATRIA ($(hostname -I | awk '{print $1}')) ==="
           if [ "$CMD" = "status" ]; then
             echo "Disk:" && df -h / | tail -1
-            echo "Memory:" && free -h | head -2
-            echo "Caddy domains:" && caddy list-modules 2>/dev/null | head -5 || echo "checking caddy..."
-            echo "Ollama:" && curl -s http://localhost:11434/api/tags 2>/dev/null | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'{len(d.get(\"models\",[]))} models')" 2>/dev/null || echo "not running"
-          elif [ "$CMD" = "deploy" ]; then
-            echo "Pulling latest..." && git pull origin main 2>/dev/null || true
-            echo "Deployed on gematria"
-          elif [ "$CMD" = "sync" ]; then
-            cd ~/blackroad-operator 2>/dev/null && git pull origin main 2>/dev/null || true
-            echo "Synced operator on gematria"
+            echo "RAM:" && free -h | grep Mem
+            echo "Ollama:" && curl -s http://localhost:11434/api/tags 2>/dev/null | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'{len(d.get(\"models\",[]))} models')" 2>/dev/null
+            echo "WireGuard:" && wg show wg0 2>/dev/null | grep -c peer && echo "peers"
           else
             eval "$CMD"
           fi
@@ -107,23 +130,14 @@ jobs:
       contains(fromJSON('["all", "droplet", "anastasia"]'), github.event.inputs.target)
     runs-on: [self-hosted, anastasia]
     steps:
-      # No checkout needed for fleet commands
       - name: Run on Anastasia
         run: |
-          echo "::group::Node Info"
-          hostname && uname -a && echo "IP: $(hostname -I | awk '{print $1}')"
-          echo "::endgroup::"
           CMD="${{ github.event.inputs.command || github.event.client_payload.command || 'status' }}"
-          echo "Running: $CMD"
+          echo "=== ANASTASIA ($(hostname -I | awk '{print $1}')) ==="
           if [ "$CMD" = "status" ]; then
             echo "Disk:" && df -h / | tail -1
-            echo "Memory:" && free -h | head -2
-          elif [ "$CMD" = "deploy" ]; then
-            echo "Pulling latest..." && git pull origin main 2>/dev/null || true
-            echo "Deployed on anastasia"
-          elif [ "$CMD" = "sync" ]; then
-            cd ~/blackroad-operator 2>/dev/null && git pull origin main 2>/dev/null || true
-            echo "Synced operator on anastasia"
+            echo "RAM:" && free -h | grep Mem
+            echo "WireGuard:" && wg show wg0 2>/dev/null | grep -c peer && echo "peers"
           else
             eval "$CMD"
           fi
