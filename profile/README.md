@@ -1,40 +1,40 @@
-# BlackRoad OS
+# BlackRoad OS, Inc.
 
-**Build anything. Remember everything.** The sovereign AI operating system.
+> *Remember the Road. Pave Tomorrow.*
 
-18 products. 27 AI agents. 5 Raspberry Pis. One highway.
+**Delaware C-Corp, incorporated 2025. The company behind BlackRoad OS.**
 
-## Products
-
-| Product | URL | What |
-|---------|-----|------|
-| BlackRoad OS | [os.blackroad.io](https://os.blackroad.io) | Browser desktop shell |
-| RoadTrip | [roadtrip.blackroad.io](https://roadtrip.blackroad.io) | 27-agent convoy chat |
-| Roadie | [tutor.blackroad.io](https://tutor.blackroad.io) | AI homework tutor |
-| RoadChat | [chat.blackroad.io](https://chat.blackroad.io) | Direct AI chat |
-| RoadView | [search.blackroad.io](https://search.blackroad.io) | Search engine |
-| BackRoad | [social.blackroad.io](https://social.blackroad.io) | Social feed |
-| RoadCode | [roadcode.blackroad.io](https://roadcode.blackroad.io) | Code editor |
-| RoadWork | [roadwork.blackroad.io](https://roadwork.blackroad.io) | Business tools |
-| CarKeys | [carkeys.blackroad.io](https://carkeys.blackroad.io) | Auth & vault |
-| RoadChain | [roadchain.blackroad.io](https://roadchain.blackroad.io) | Blockchain ledger |
-| RoadCoin | [roadcoin.blackroad.io](https://roadcoin.blackroad.io) | Token economy |
-| RoadBook | [roadbook.blackroad.io](https://roadbook.blackroad.io) | Publisher |
-| RoadWorld | [roadworld.blackroad.io](https://roadworld.blackroad.io) | Game engine |
-| OfficeRoad | [officeroad.blackroad.io](https://officeroad.blackroad.io) | Animated AI office |
-| CarPool | [carpool.blackroad.io](https://carpool.blackroad.io) | AI model router |
-| BlackBoard | [blackboard.blackroad.io](https://blackboard.blackroad.io) | Analytics |
-| OneWay | [oneway.blackroad.io](https://oneway.blackroad.io) | Data export |
-| RoadSide | [roadside.blackroad.io](https://roadside.blackroad.io) | Onboarding |
-
-## The Roadies — 27 AI Agents
-
-Roadie, Lucidia, Cecilia, Octavia, Olympia, Silas, Sebastian, Calliope, Aria, Thalia, Lyra, Sapphira, Seraphina, Alexandria, Theodosia, Sophia, Gematria, Portia, Atticus, Cicero, Valeria, Alice, Celeste, Elias, Ophelia, Gaia, Anastasia
-
-Talk to them at [roadtrip.blackroad.io](https://roadtrip.blackroad.io)
+329+ repositories. The corporate monorepo — legal, finance, infra, hiring, and the canonical source of truth for BlackRoad OS, Inc.
 
 ---
 
-BlackRoad OS, Inc. Founded November 17, 2025. Delaware C-Corp.
+## What We Build
 
-Remember the Road. Pave Tomorrow.
+BlackRoad OS is a sovereign AI operating system — one browser tab, 18 products, 27 agents, persistent memory across every device.
+
+## The 18 Products
+
+| Product | URL | Agent |
+|---|---|---|
+| BlackRoad OS | [os.blackroad.io](https://os.blackroad.io) | Roadie |
+| RoadTrip | [roadtrip.blackroad.io](https://roadtrip.blackroad.io) | Cecilia |
+| RoadWorld | [roadworld.blackroad.io](https://roadworld.blackroad.io) | Gaia |
+| RoadCode | [roadcode.blackroad.io](https://roadcode.blackroad.io) | Silas |
+| RoadBook | [roadbook.blackroad.io](https://roadbook.blackroad.io) | Lucidia |
+| RoadWork | [roadwork.blackroad.io](https://roadwork.blackroad.io) | Octavia |
+| RoadView | [roadview.blackroad.io](https://roadview.blackroad.io) | Olympia |
+| RoadChain | [roadchain.blackroad.io](https://roadchain.blackroad.io) | Gematria |
+| RoadCoin | [roadcoin.blackroad.io](https://roadcoin.blackroad.io) | Atticus |
+| Roadie | [roadie.blackroad.io](https://roadie.blackroad.io) | Roadie |
+| BackRoad | [backroad.blackroad.io](https://backroad.blackroad.io) | Sophia |
+| BlackBoard | [blackboard.blackroad.io](https://blackboard.blackroad.io) | Calliope |
+| CarKeys | [carkeys.blackroad.io](https://carkeys.blackroad.io) | Celeste |
+| CarPool | [carpool.blackroad.io](https://carpool.blackroad.io) | Elias |
+| OfficeRoad | [officeroad.blackroad.io](https://officeroad.blackroad.io) | Aria |
+| OneWay | [oneway.blackroad.io](https://oneway.blackroad.io) | Valeria |
+| RoadSide | [roadside.blackroad.io](https://roadside.blackroad.io) | Thalia |
+| Highway | [highway.blackroad.io](https://highway.blackroad.io) | Olympia |
+
+---
+
+*[BlackRoad OS, Inc.](https://os.blackroad.io) · Remember the Road. Pave Tomorrow.* 🖤🛣️
